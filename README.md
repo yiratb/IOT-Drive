@@ -1,4 +1,18 @@
-Step 1: Load the NBD Kernel Module
+Step 1: Build the Project
+
+    Navigate to the project directory:
+    
+    ```bash
+    cd /concrete
+    ```
+
+    Compile the project:
+
+    ```bash
+    make
+    ```
+
+Step 2: Load the NBD Kernel Module
 
 Open a terminal and execute the following command to load the NBD kernel module:
 
@@ -6,7 +20,7 @@ Open a terminal and execute the following command to load the NBD kernel module:
 sudo modprobe nbd
 ```
 
-Step 2: Configure NBD Sectors
+Step 3: Configure NBD Sectors
 
 In the same terminal, run the following loop to set the maximum sectors per request for each NBD device:
 
@@ -16,7 +30,7 @@ for i in {0..15}; do
 done
 ```
 
-Step 3: Run Minion and Master
+Step 4: Run Minion and Master
 
 Open two separate terminals to run the minion and master processes:
 
@@ -32,7 +46,7 @@ Open two separate terminals to run the minion and master processes:
         sudo ./final_project_test.out /dev/nbd0
     ```
 
-Step 4: Prepare the NBD Device
+Step 5: Prepare the NBD Device
 
 In another terminal, format the NBD device and mount it:
 
@@ -48,6 +62,6 @@ In another terminal, format the NBD device and mount it:
         sudo mount /dev/nbd0 /mnt
     ```
 
-Step 5: Access the Mounted Filesystem
+Step 6: Access the Mounted Filesystem
 
 You can now access the mounted filesystem at /mnt. Use standard file operations to read and write data.
